@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_farmer_types" value="name:CA_NO;datatype:int,name:CA_Name;datatype:string" />
+	<infoitem key="UD_collect_detail" value="name:C_NO;datatype:int,name:F_ID;datatype:string,name:F_Name;datatype:string,name:arabic_name;datatype:string,name:C_date;datatype:datetime,name:count;datatype:int,name:V_Name;datatype:string,name:C_WH_100;datatype:real,name:C_Row_no;datatype:string,name:C_Shelf;datatype:string,name:C_Record;datatype:string,name:Total_w;datatype:int,name:ag_season_no;datatype:int,name:generation;datatype:string,name:section;datatype:string,name:depth;datatype:string,name:location_flag;datatype:int,name:remain;datatype:real,name:Notes;datatype:blob" />
+</info>

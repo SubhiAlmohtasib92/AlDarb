@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_calender_programs" value="name:id;datatype:int,name:c_name;datatype:blob,name:p_day;datatype:blob,name:from_time;datatype:time,name:to_time;datatype:time,name:cource_id;datatype:int" />
+</info>

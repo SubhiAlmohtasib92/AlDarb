@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_seeds_familys" value="name:family_NO;datatype:int,name:family_name;datatype:string" />
+</info>

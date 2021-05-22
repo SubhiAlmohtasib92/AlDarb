@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_all_classes" value="name:class_id;datatype:int,name:class_name;datatype:blob" />
+</info>

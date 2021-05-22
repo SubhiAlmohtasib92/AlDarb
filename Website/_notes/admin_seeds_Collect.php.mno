@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_all_collect" value="name:C_NO;datatype:int,name:C_NO;datatype:int,name:F_Name;datatype:string,name:arabic_name;datatype:string,name:C_date;datatype:datetime,name:count;datatype:int,name:Total_w;datatype:int" />
+</info>

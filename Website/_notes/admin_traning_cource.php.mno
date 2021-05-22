@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:c_id;datatype:int,name:c_name;datatype:blob,name:c_type;datatype:int,name:user_name;datatype:string" />
+	<infoitem key="UD_c_program" value="name:id;datatype:int,name:cource_id;datatype:int,name:p_day;datatype:blob,name:from_time;datatype:time,name:to_time;datatype:time,name:room;datatype:int" />
+	<infoitem key="UD_regesters_count" value="name:id;datatype:int,name:c_id;datatype:int,name:stu_id;datatype:int,name:cost;datatype:real,name:insert_date;datatype:datetime" />
+</info>

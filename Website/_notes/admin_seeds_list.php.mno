@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_all_seeds" value="name:I_NO;datatype:int,name:arabic_name;datatype:string,name:family_no;datatype:int,name:I_Name;datatype:string,name:I_Cat_No;datatype:int,name:Notes;datatype:string,name:genus;datatype:string,name:spe;datatype:string" />
+	<infoitem key="UD_all_cat" value="name:i_cat_no;datatype:int,name:i_name;datatype:string" />
+	<infoitem key="UD_all_family" value="name:family_NO;datatype:int,name:family_name;datatype:string" />
+</info>

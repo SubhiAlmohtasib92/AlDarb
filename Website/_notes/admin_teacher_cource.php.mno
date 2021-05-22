@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_techer_cources" value="name:c_id;datatype:int,name:c_name;datatype:blob,name:c_type;datatype:int,name:c_status;datatype:int,name:insert_date;datatype:datetime" />
+</info>

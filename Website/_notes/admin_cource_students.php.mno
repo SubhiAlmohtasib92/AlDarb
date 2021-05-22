@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_courcer_info" value="name:c_id;datatype:int,name:c_name;datatype:blob,name:c_type;datatype:int,name:class_id;datatype:int,name:material_id;datatype:int,name:c_hours;datatype:int,name:c_teatcher;datatype:int,name:add_by;datatype:int,name:c_status;datatype:int,name:insert_date;datatype:datetime,name:c_cost;datatype:real" />
+	<infoitem key="UD_all_stu" value="name:user_id;datatype:int,name:user_name;datatype:string,name:father_id;datatype:int,name:user_email;datatype:string,name:address;datatype:blob,name:password;datatype:string,name:additional_info;datatype:blob,name:account_status;datatype:int,name:user_type;datatype:int,name:reg_date;datatype:datetime,name:gender;datatype:string,name:emergency_data;datatype:blob,name:father_work_location;datatype:blob,name:mobile;datatype:blob" />
+	<infoitem key="UD_all_cource_students" value="name:id;datatype:int,name:c_id;datatype:int,name:user_name;datatype:string,name:cost;datatype:real,name:insert_date;datatype:datetime" />
+</info>

@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_is_reg" value="name:id;datatype:int,name:c_id;datatype:int,name:stu_id;datatype:int,name:cost;datatype:real,name:insert_date;datatype:datetime" />
+</info>

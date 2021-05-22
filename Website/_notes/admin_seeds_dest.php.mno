@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_all_dest" value="name:rec_no;datatype:int,name:F_ID;datatype:string,name:F_Name;datatype:string,name:farmer_no;datatype:string,name:V_Name;datatype:string,name:date;datatype:datetime,name:amount;datatype:real,name:area;datatype:real,name:amount_to_back;datatype:real,name:notes;datatype:string,name:arabic_name;datatype:string" />
+</info>

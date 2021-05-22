@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_all_teatcher" value="name:user_id;datatype:int,name:user_name;datatype:string,name:father_id;datatype:int,name:user_email;datatype:string,name:address;datatype:blob,name:password;datatype:string,name:additional_info;datatype:blob,name:account_status;datatype:int,name:user_type;datatype:int,name:reg_date;datatype:datetime,name:gender;datatype:string,name:emergency_data;datatype:blob,name:father_work_location;datatype:blob,name:mobile;datatype:blob" />
+	<infoitem key="UD_selected_class" value="name:class_id;datatype:int,name:class_name;datatype:blob" />
+	<infoitem key="UD_sellected_material" value="name:id;datatype:int,name:m_name;datatype:blob" />
+	<infoitem key="UD_all_classes" value="name:class_id;datatype:int,name:class_name;datatype:blob" />
+	<infoitem key="UD_all_matiral" value="name:id;datatype:int,name:m_name;datatype:blob" />
+	<infoitem key="UD_activ_cources" value="name:c_id;datatype:int,name:c_name;datatype:blob,name:c_hours;datatype:int,name:user_name;datatype:string,name:c_status;datatype:int,name:insert_date;datatype:date,name:c_cost;datatype:real" />
+	<infoitem key="UD_regesters_count" value="name:id;datatype:int,name:c_id;datatype:int,name:stu_id;datatype:int,name:cost;datatype:real,name:insert_date;datatype:date,name:reg_end_date;datatype:date" />
+</info>

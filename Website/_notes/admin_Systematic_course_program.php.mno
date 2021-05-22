@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:c_id;datatype:int,name:c_name;datatype:blob,name:c_type;datatype:int,name:class_id;datatype:int,name:material_id;datatype:int,name:c_hours;datatype:int,name:c_teatcher;datatype:int,name:add_by;datatype:int,name:c_status;datatype:int,name:insert_date;datatype:datetime,name:c_cost;datatype:real" />
+	<infoitem key="UD_all_rooms" value="name:room_id;datatype:int,name:room_name;datatype:blob" />
+	<infoitem key="UD_all_dayes" value="name:id;datatype:int,name:name;datatype:blob" />
+	<infoitem key="UD_cource_program" value="name:id;datatype:int,name:p_day;datatype:blob,name:from_time;datatype:time,name:to_time;datatype:time,name:room_name;datatype:blob" />
+</info>

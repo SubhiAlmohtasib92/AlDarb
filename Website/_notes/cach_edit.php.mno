@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_cash_info" value="name:id;datatype:int,name:by_user;datatype:int,name:from_father;datatype:int,name:to_student;datatype:int,name:for_cource;datatype:int,name:mony;datatype:real,name:date_insert;datatype:datetime,name:notes;datatype:blob" />
+</info>

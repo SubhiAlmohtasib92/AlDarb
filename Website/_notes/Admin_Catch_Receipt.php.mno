@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_all_fathers" value="name:user_id;datatype:int,name:user_name;datatype:string,name:father_id;datatype:int,name:user_email;datatype:string,name:address;datatype:blob,name:password;datatype:string,name:additional_info;datatype:blob,name:account_status;datatype:int,name:user_type;datatype:int,name:reg_date;datatype:datetime,name:gender;datatype:string,name:emergency_data;datatype:blob,name:father_work_location;datatype:blob,name:mobile;datatype:blob" />
+	<infoitem key="UD_alll_fathers" value="name:user_id;datatype:int,name:user_name;datatype:string,name:father_id;datatype:int,name:user_email;datatype:string,name:address;datatype:blob,name:password;datatype:string,name:additional_info;datatype:blob,name:account_status;datatype:int,name:user_type;datatype:int,name:reg_date;datatype:datetime,name:gender;datatype:string,name:emergency_data;datatype:blob,name:father_work_location;datatype:blob,name:mobile;datatype:blob" />
+</info>

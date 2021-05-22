@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_all_farmers" value="name:F_NO;datatype:int,name:F_ID;datatype:string,name:F_Name;datatype:string,name:F_Tel;datatype:string,name:F_site;datatype:string,name:V_Name;datatype:string,name:Land_area;datatype:int,name:Notes;datatype:string,name:birth_date;datatype:date,name:farmer_work;datatype:blob,name:family_count;datatype:int" />
+	<infoitem key="UD_all_vilige" value="name:V_NO;datatype:int,name:V_Name;datatype:string" />
+	<infoitem key="UD_all_cat" value="name:CA_NO;datatype:int,name:CA_Name;datatype:string" />
+</info>

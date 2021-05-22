@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_farmer_types" value="name:CA_NO;datatype:int,name:CA_Name;datatype:string" />
+</info>
