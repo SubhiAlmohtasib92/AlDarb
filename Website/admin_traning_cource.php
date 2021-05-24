@@ -52,6 +52,11 @@ $page['desc'] = 'وصف محتوى الصفحة ';
  include('templeat_header.php');
   ?>
  
+ <style>
+ #currentCourses th,td{
+   text-align:center;
+ }
+ </style>
   
 
 
@@ -109,7 +114,7 @@ $page['desc'] = 'وصف محتوى الصفحة ';
 
 <div class="element-actions"> </div>
       <h6 class="element-header" align="center">  الدورات الحالية  </h6>
-<table border="1" class="table table-hover ">
+<table border="1" class="table table-hover " id="currentCourses">
         <tr class="bg-dark text-white">
            <td>اسم الدورة</td>
           <td>نوع الدورة</td>

@@ -7,7 +7,6 @@
 <meta content="Tamerlan Soziev" name="author">
 <meta content="Admin dashboard html template" name="description">
 <meta content="width=device-width,initial-scale=1" name="viewport">
-<link href="favicon.png" rel="shortcut icon">
 <link href="apple-touch-icon.png" rel="apple-touch-icon">
 <link href="../fast.fonts.net/cssapi/487b73f1-c2d1-43db-8526-db577e4c822b.css" rel="stylesheet">
 <link href="bower_components/select2/dist/css/select2.min.css" rel="stylesheet">
@@ -55,7 +54,7 @@
     <div class="menu-w selected-menu-color-light menu-activated-on-hover menu-has-selected-link color-scheme-dark color-style-default sub-menu-color-bright menu-position-side menu-side-left menu-layout-compact sub-menu-style-over">
       <div class="logo-w"><a class="logo" href="index.php">
         <div class="logo-element"></div>
-        <div class="logo-label"> مركز الدرب التعليمي</div>
+        <div class="logo-label text-white"> مركز الدرب التعليمي</div>
         </a></div>
         
         

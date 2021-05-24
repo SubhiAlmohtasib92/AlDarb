@@ -86,12 +86,13 @@ if (isset($_SERVER['QUERY_STRING'])) {
 }
 
 if ((isset($_POST["c_value"])) && ($_POST["c_value"] != "")) {
-  $insertSQL = sprintf("INSERT INTO catch_receipt (by_user, from_father, to_student, for_cource, mony, date_insert, notes) VALUES (%s, %s, %s, %s, %s, NOW(), %s)",
+  $insertSQL = sprintf("INSERT INTO catch_receipt (by_user, from_father, to_student, for_cource, mony, date_insert, notes) VALUES (%s, %s, %s, %s, %s, %s, %s)",
                        GetSQLValueString($_SESSION['user_id'], "int"),
                        GetSQLValueString($_POST['father_id'].'-1', "int"),
                        GetSQLValueString($_POST['user_id'], "int"),
                        GetSQLValueString($_POST['cource_id'].'-1', "int"),
                        GetSQLValueString($_POST['c_value'], "double"),
+                       GetSQLValueString($_POST['receiptDate'], "date"),
                        GetSQLValueString($_POST['notes'], "text"));
 
   mysql_select_db($database_conn, $conn);
@@ -117,14 +118,23 @@ $totalRows_last_add = mysql_num_rows($last_add);
 
 <div align="center" > 
 <h3 align="center" > تم اضافة الدفعة بنجاح  </h3> 
+<div class="col-md-12" style=" display: flex; justify-content: center;align-items: center;margin-top:20px;">
+<div class="col md 6">
+<a href="cach_print.php?id=<?php echo $row_last_add['id']; ?>" class="btn btn-dark text-white  " style="width:100%;" > طباعة سند القبض  </a>
 
-<a href="cach_print.php?id=<?php echo $row_last_add['id']; ?>" class="btn btn-dark text-white " > طباعة سند القبض  </a>
+</div>
+
+<div class="col md 6">
+<a class="btn btn-dark " style="width:100%;" href="admin_student_profile.php?id=<?php echo $_POST['user_id'];?>">عودة لملف الطالب </a>
+
+</div>
+</div>
+
 
 
 
 <br />
 
-<a class="btn btn-dark" href="admin_student_profile.php?id=<?php echo $_POST['user_id'];?>">عودة لملف الطالب </a>
  
  
 </div> 
@@ -136,24 +146,26 @@ $totalRows_last_add = mysql_num_rows($last_add);
  
  
 <form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
-  <table align="center">
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">المبلغ :</td>
-      <td><input type="text" name="mony" value="" size="32" /></td>
+  <table align="center" >
+    <tr valign="baseline" style="margin-top:10px;">
+      <td nowrap="nowrap" align="right" style="margin-top:10px;">المبلغ :</td>
+      <td><input type="number"  style="margin-top:10px;"  class="form-control" name="mony" value="" size="32" min="0" oninput="validity.valid||(value='');" /></td>
     </tr>
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">ملاحظات :</td>
-      <td><textarea name="notes" cols="32"></textarea></td>
+    <tr valign="baseline" style="margin-top:10px;">
+      <td nowrap="nowrap" align="right" style="margin-top:10px;">التاريخ</td>
+      <td><input type="date"  style="text-align:right;margin-top:10px;" class="form-control" name="receiptDate" value="<?php echo date('Y-m-d'); ?>"  /></td>
     </tr>
+
     <tr valign="baseline">
-      <td nowrap="nowrap" align="right">&nbsp;</td>
-      <td><input type="button" value="  اضافة دفعة " onclick="cr_new_add('<?php echo $_POST['user_id'];?>','<?php echo $_POST['cource_id'];?>','<?php echo $_POST['father_id'];?>', mony.value , notes.value )" /></td>
+      <td nowrap="nowrap" align="right" style="margin-top:10px;">ملاحظات :</td>
+      <td><textarea name="notes" style="margin-top:10px;" class="form-control" cols="32"></textarea></td>
     </tr>
+
   </table>
-  
-  
- 
-     
+
+<div class="row" style="margin-top:10px;"   >
+  <input type="button"  style="margin-top:10px;text-align:center;display: inline;margin: auto;" class="btn btn-success fa-md text-white " value="  اضافة دفعة " onclick="cr_new_add('<?php echo $_POST['user_id'];?>','<?php echo $_POST['cource_id'];?>','<?php echo $_POST['father_id'];?>', mony.value , notes.value,receiptDate.value )" />
+  </div>
    <input type="hidden" name="from_father" value="<?php echo $_POST['father_id'];?>" />
   <input type="hidden" name="to_student" value="<?php echo $_POST['user_id'];?>" />
   <input type="hidden" name="for_cource" value="<?php echo $_POST['cource_id'];?>" />

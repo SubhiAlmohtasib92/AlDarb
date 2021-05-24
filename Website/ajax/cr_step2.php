@@ -63,7 +63,7 @@ if (isset($row_all_father_stu['user_id'])) {
   $colname_stu_courcess = $row_all_father_stu['user_id'];
 }
 mysql_select_db($database_conn, $conn);
-$query_stu_courcess = sprintf("SELECT cource_students.id, cource_students.c_id, cource_students.cost, cource_students.insert_date, courses.c_name FROM cource_students, courses WHERE stu_id = %s AND cource_students.c_id = courses.c_id", GetSQLValueString($colname_stu_courcess, "int"));
+$query_stu_courcess = sprintf("SELECT * FROM catch_receipt WHERE to_student = %s", GetSQLValueString($colname_stu_courcess, "int"));
 $stu_courcess = mysql_query($query_stu_courcess, $conn) or die(mysql_error());
 $row_stu_courcess = mysql_fetch_assoc($stu_courcess);
 $totalRows_stu_courcess = mysql_num_rows($stu_courcess);	   

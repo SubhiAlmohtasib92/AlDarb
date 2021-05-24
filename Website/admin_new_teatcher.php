@@ -77,28 +77,33 @@ $page['desc'] = 'وصف محتوى الصفحة ';
  
 
 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+#dataTable1 th,td{
+  text-align:center;
+}
+  </style>
+
+  <div class="row" > 
 
 
-<div class="row" > 
 
 
 
 
-
-
-<div data-toggle="modal" data-target="#myModal"  class="col-md-3" style="text-align:center ;"><a class="p-3 element-box el-tablo" href="#">
+    <div data-toggle="modal" data-target="#myModal"  class="col-md-3 " style="text-align:center ;"><a class="p-3 element-box el-tablo btn btn-success" href="#">
     <h1 align="center" class="fi-plus"></h1>
              
         اضافة   مدرس جديد       </a></div>
 
-
-<div class="col-md-9 element-box el-tablo p-2 " dir="ltr" >
+    <br>
+    <div class="col-md-12 element-box el-tablo p-2" dir="ltr" >
 
 
   
 
-<table border="1" class="table table-striped table-lightfont dataTable " id="dataTable1" dir="rtl" >
-<thead class="bg-dark text-white">
+  <table border="1" class="table table-striped table-lightfont dataTable " id="dataTable1" dir="rtl" >
+  <thead class="bg-dark text-white">
 
  
        <th>اسم المدرس</th>
@@ -115,17 +120,43 @@ $page['desc'] = 'وصف محتوى الصفحة ';
          <td><?php echo $row_students_father['user_name']; ?></td>
          <td><?php echo $row_students_father['address']; ?></td>
         <td><?php echo $row_students_father['mobile']; ?></td>
-            <td>  <a class="btn btn-dark" href="=<?php echo $row_students_father['user_id']; ?>" > الملف المالي         </a>  
+            <td > 
+            <div class="col md 12" style="display: flex; justify-content: center;align-items: center;">
+            <div class="col md 5">
+            <a class="btn btn-dark" href="=<?php echo $row_students_father['user_id']; ?>" > الملف المالي         </a>  
+
+            </div>
+
+            <div class="col md 5">
+            <a class="btn btn-dark" href="admin_teacher_cource.php?id=<?php echo $row_students_father['user_id']; ?>" >     دورات المدرس   </a>  
+
+            </div>
+
+            <div class="col md 2">
+
+            <a id="teacherEdit"
+              href="javascript:void(0)"
+              style="width:100%;"
+              data-toggle="modal"
+              data-target="#teacherEditModal"
+              data-teacherid="<?php echo $row_students_father['user_id']; ?>"
+              data-teachername="<?php echo $row_students_father['user_name']; ?>"
+              data-teacheraddress="<?php echo $row_students_father['address']; ?>"
+              data-teachermobile="<?php echo $row_students_father['mobile']; ?>"
+              > 
+              <i class="fa fa-edit fa-lg"></i> </a>
+            </div>
+
+            </div>
             
-             <a class="btn btn-dark" href="admin_teacher_cource.php?id=<?php echo $row_students_father['user_id']; ?>" >     دورات المدرس   </a>  
             
              </td>
       </tr>
       <?php } while ($row_students_father = mysql_fetch_assoc($students_father)); ?>
   
-  </tbody>
-  </table>
-</div> 
+    </tbody>
+    </table>
+  </div> <!--- div row ---> 
 
 
 
@@ -134,6 +165,62 @@ $page['desc'] = 'وصف محتوى الصفحة ';
 
 
 </div>
+
+
+
+
+
+<!-- Edit Payment Modal -->
+
+<div class="modal fade" id="teacherEditModal" tabindex="-1" role="dialog" aria-labelledby="teacherEditLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+        <h5 class="modal-title" id="teacherEditLabel"  style='text-align:center;display: inline;margin: auto;'>تعديل مدرس</h5>
+      </div>
+      <div class="modal-body">
+      <div class="col-md-12" style="text-align:center;">
+        <form id="editTeacherForm">
+        
+          <div class="form-group form-inline" >
+            <label for="teacherName" class="col-sm-2 col-form-label">اسم المدرس:</label>
+            <div class="col-sm-10">
+            <input type="text" name="teacherName" class="form-control" id="teacherName" style="margin-right:5px;" required>
+            </div>
+          </div>
+
+          <div class="form-group form-inline" >
+            <label for="teacherAddress" class="col-sm-2 col-form-label">عنوان المدرس:</label>
+            <div class="col-sm-10">
+            <input type="text" name="teacherAddress"   class="form-control" id="teacherAddress" style="margin-right:5px;" required>
+            </div>
+          </div>
+
+          <div class="form-group form-inline" >
+            <label for="teacherMobile" class="col-sm-2 col-form-label">رقم الهاتف:</label>
+            <div class="col-sm-10">
+            <input type="tel" name="teacherMobile"  maxlength="10" minlength="0" onkeypress="return onlyNumberKey(event)" class="form-control" id="teacherMobile" style="margin-right:5px;" required>
+            </div>
+          </div>
+
+
+        
+
+          <input id="inputTeacherId" type="hidden" class="form-control" name="inputTeacherId"  value=""/>
+        </form>
+        </div>
+      </div>
+      <div class="modal-footer" style="text-align:center;display: inline;margin: auto;">
+        <button type="button" class="btn btn-danger text-white" data-dismiss="modal">اغلاق</button>
+        <button id="saveTeacher" type="button" class="btn btn-success text-white">حفظ المعلومات</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- end of Payment Edit Modal -->
+
 
 
 
@@ -159,10 +246,10 @@ $page['desc'] = 'وصف محتوى الصفحة ';
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">  اضافة مدرس  جديد </h4>
+        <h4 class="modal-title" style="text-align:center;display: inline;margin: auto;">  اضافة مدرس  جديد </h4>
       </div>
       <div class="modal-body">
-        <form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1" dir="rtl" >
+        <form   autocomplete="off" action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1" dir="rtl" >
           <table class="table" align="center">
             <tr valign="baseline">
               <td nowrap="nowrap" align="right">الاسم الكامل</td>
@@ -174,7 +261,7 @@ $page['desc'] = 'وصف محتوى الصفحة ';
             </tr>
             <tr valign="baseline">
               <td nowrap="nowrap" align="right">الجنس</td>
-              <td><select name="gender">
+              <td><select name="gender" class="form-control">
                 <option value="ذكر" <?php if (!(strcmp("ذكر", ""))) {echo "SELECTED";} ?>>ذكر</option>
                 <option value="انثى" <?php if (!(strcmp("انثى", ""))) {echo "SELECTED";} ?>>انثى</option>
               </select></td>
@@ -213,7 +300,75 @@ $page['desc'] = 'وصف محتوى الصفحة ';
 </div>
 
 
+<script>
 
+
+function onlyNumberKey(evt) {
+         
+         // Only ASCII character in that range allowed
+         var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+         if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+             return false;
+         return true;
+     }
+
+
+$(document).ready(function(){
+$('#teacherEditModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var teacherid = button.data('teacherid')
+  var teachername = button.data('teachername')
+  var teacheraddress = button.data('teacheraddress')
+  var teachermobile = button.data('teachermobile')
+  var modal = $(this)
+  modal.find('#teacherName').val(teachername)
+  modal.find('#teacherAddress').val(teacheraddress)
+  modal.find('#teacherMobile').val(teachermobile)
+  modal.find('#inputTeacherId').val(teacherid)
+});
+
+
+$("#saveTeacher").click(function() {
+
+var invalidData=false;
+
+
+$('#editTeacherForm input').each(
+  function(index){  
+      var input = $(this);
+      if(input.val().length===0){
+        invalidData=true;
+        alert('الرجاء تعبئة كل الحقول');
+        return false;
+      }
+  }
+);
+
+if(invalidData){
+return;
+}
+
+console.log('here 1 ');
+$.ajax({   
+        type: "POST",
+        data : $('#editTeacherForm').serialize(),
+        cache: false,  
+        url: "ajax/users.php?action=updateTeacher",   
+        success: function(data){
+         location.reload();
+
+        }   ,error: function (request, status, error) {
+        alert(request.responseText);
+    }
+    }); 
+
+  });
+
+
+
+
+});
+</script>
 
 <?php 
 //

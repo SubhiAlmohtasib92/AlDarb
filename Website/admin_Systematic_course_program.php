@@ -174,7 +174,7 @@ do {
   
   <div class="col-md-8" >
     <?php if ($totalRows_cource_program > 0) { // Show if recordset not empty ?>
-      <table border="1" class="table ">
+      <table border="1" class="table " >
         <tr class="bg-dark text-white" >
           <td>اليوم</td>
           <td>من تاريخ</td>

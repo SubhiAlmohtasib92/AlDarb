@@ -140,22 +140,36 @@ $page['desc'] = 'وصف محتوى الصفحة ';
  include('templeat_header.php');
   ?>
   
-  
+  <style>
+  #todayProgram th, tr{
+    text-align :center;
+  }
+  </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+<script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+
   
   <h3 align="center" > </h3>
   
   
   <h3 align="center" > برنامج اليوم  ( <?php echo get_day_name_from_date() ; ?> ) </h3>
    
+  
 
-<table border="1" class="table table hover ">
+<table border="1" class="table table hover " id="todayProgram">
+<thead>
   <tr class="bg-dark text-white">
-     <td>الدرس</td>
-     <td>من الساعة </td>
-    <td>حتى الساعة </td>
-    <td>  الطلاب </td><td>    </td>
+     <th>الدرس</th>
+     <th>من الساعة </th>
+    <th>حتى الساعة </th>
+    <th>  الطلاب </th>
+    <th>    </th>
     
   </tr>
+  </thead>
+  <tbody>
   <?php do { ?>
     <tr>
       <td><?php echo $row_calender_programs['c_name']; ?></td>
@@ -196,6 +210,7 @@ echo $totalRows_regesters_count ;
       
       
     </tr>
+    </tbody>  
     <?php } while ($row_calender_programs = mysql_fetch_assoc($calender_programs)); ?>
 </table>
 
@@ -209,22 +224,43 @@ echo $totalRows_regesters_count ;
  
  
  <br />
-الطلبة الغير مسددين
-<table border="1" class="table ">
+
+
+<hr>
+<br>
+
+<?php
+
+$query_not_payed = "
+
+SELECT cource_students.stu_id, users.user_name, SUM(cource_students.cost) AS tcost, ( SELECT SUM(catch_receipt.mony) FROM catch_receipt WHERE catch_receipt.to_student = cource_students.stu_id ) AS anas, IFNULL( ( SELECT SUM(catch_receipt.mony) FROM catch_receipt WHERE catch_receipt.to_student = cource_students.stu_id ), 0 ) - SUM(cource_students.cost) AS aa, IF( DATE( ( SELECT reg_end_date FROM cource_students sx WHERE sx.stu_id = cource_students.stu_id ORDER BY reg_end_date LIMIT 1 ) ) BETWEEN DATE(NOW()) AND DATE( DATE_ADD(NOW(), INTERVAL 1 WEEK)), 'ExpiringSoon', 'NotExpiringSoon' ) AS 'PaymentStatus' FROM cource_students, users WHERE cource_students.stu_id = users.user_id GROUP BY (cource_students.stu_id) ORDER BY PaymentStatus  desc 
+
+   ";
+$not_payed = mysql_query($query_not_payed, $conn) or die(mysql_error());
+$row_not_payed = mysql_fetch_assoc($not_payed);
+$totalRows_not_payed = mysql_num_rows($not_payed);
+
+?>
+
+ <h3 style="text-align:center;">الطلبة غير المسددين</h3>
+<table border="1" class="table " id="unPaidStudents">
+<thead>
   <tr class="bg-dark text-white">
-    <td>الطالب </td>
-    <td>مجموع الذمم </td>
-     <td>مجموع  المدفوع  </td>
-     <td>الرصيد    </td>
-       <td>     </td>
+    <th>الطالب </th>
+    <th>مجموع الذمم </th>
+     <th>مجموع  المدفوع  </th>
+     <th>الرصيد    </th>
+       <th>     </th>
      
      
   </tr>
+  </thead>
+  <tbody>
   <?php do {
 	  
 	  if ( $row_not_payed['aa'] < 0  ) { 
 	   ?>
-    <tr>
+    <tr <?php if ($row_not_payed['PaymentStatus']=='ExpiringSoon'){echo 'style="background-color:red;"';}?> >
       <td><?php echo $row_not_payed['user_name']; ?></td>
       <td><?php echo $row_not_payed['tcost']; ?></td>
             <td><?php echo $row_not_payed['anas']; ?></td>
@@ -234,7 +270,31 @@ echo $totalRows_regesters_count ;
               
     </tr>
     <?php } }  while ($row_not_payed = mysql_fetch_assoc($not_payed)); ?>
+    </tbody>
 </table>
+
+
+
+ 
+ 
+ </div>
+
+
+
+
+<script>
+$(document).ready(function(){
+    $('#unPaidStudents').dataTable(
+      { dom: 'Plfrtip',
+        "pageLength": 10,
+        "lengthMenu": [[5, 10, 15,25,50, -1], [5, 10,15,25, 50, "All"]],
+        "oLanguage": {
+   "sSearch": "ابحث:"
+ }
+      }
+    );
+});
+</script>
 <?php 
 //
     include('templeat_footer.php'); 

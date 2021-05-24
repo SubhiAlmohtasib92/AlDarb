@@ -56,6 +56,7 @@ $page['desc'] = 'وصف محتوى الصفحة ';
   
     <script language="javascript">
         function printdiv(printpage) {
+        
             var headstr = "<html><head><title></title></head><body><br /><br /><br /><br /><br /><br />";
             var footstr = "</body>";
             var newstr = document.all.item(printpage).innerHTML;
@@ -68,13 +69,24 @@ $page['desc'] = 'وصف محتوى الصفحة ';
     </script>
   
   
-      <input name="b_print" type="button" class="ipt" onClick="printdiv('div_print');" value=" طباعة  ">
+      <input id="printInvoice" name="b_print" type="button" class="ipt" onClick="printdiv('div_print');" value=" طباعة  ">
 
 
+<style>
 
+#myTable tr,td{
+  font-weight: 900;
+  font-size: 30px;
+}
+</style>
   <div id="div_print" dir="rtl">
   
-  
+<div class=" text-center">
+<img class="text-center fa-2x" style="width:500px;height:500px;" src="images/logo-dark.png">
+
+</div>
+
+
   
   <center > 
   
@@ -86,9 +98,9 @@ $page['desc'] = 'وصف محتوى الصفحة ';
 
 
 
-<table class="table " width="100%" border="1" dir="rtl" cellpadding="5" cellspacing="5">
+<table id="myTable" class="table " width="100%" border="1" dir="rtl" cellpadding="5" cellspacing="3">
   <tr>
-    <td> وصلني من الطالب :</td>
+    <td > وصلني من الطالب :</td>
     <td><?php echo $row_Recordset1['user_name']; ?></td>
   </tr>
   <tr>
@@ -101,7 +113,7 @@ $page['desc'] = 'وصف محتوى الصفحة ';
   </tr>
     <tr>
     <td>بتاريخ  :</td>
-    <td> <?php echo $row_Recordset1['date_insert']; ?>  </td>
+    <td> <?php echo date('m/d/Y',strtotime($row_Recordset1['date_insert'])) ; ?>  </td>
   </tr>
   
 </table>
